@@ -456,16 +456,14 @@ clone_loadgen:
 		echo "Cloning Official MLPerf Inference (For Loadgen Files)" \
 			&& git clone $(INFERENCE_URL) $(INFERENCE_DIR); \
 	fi
-	# @echo "Updating Loadgen" \
-		# && cd $(INFERENCE_DIR) \
-		# && git submodule update --init tools/submission/power-dev \
-		# && git submodule update --init third_party/pybind
-		# && git fetch \
-		# && git checkout $(INFERENCE_HASH) \
-		# && git submodule update --init tools/submission/power-dev \
-		# && git submodule update --init third_party/pybind \
-		# && git submodule update --init language/bert/DeepLearningExamples \
-		# && git submodule update --init vision/medical_imaging/3d-unet-brats19/nnUnet
+	@echo "Updating Loadgen" \
+		&& cd $(INFERENCE_DIR) \
+		&& git fetch \
+		&& git checkout $(INFERENCE_HASH) \
+		&& git submodule update --init tools/submission/power-dev \
+		&& git submodule update --init third_party/pybind \
+		&& git submodule update --init language/bert/DeepLearningExamples \
+		&& git submodule update --init vision/medical_imaging/3d-unet-brats19/nnUnet
 
 # Clone power-dev repo.
 .PHONY: clone_power_dev

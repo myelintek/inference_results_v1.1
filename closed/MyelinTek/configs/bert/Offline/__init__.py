@@ -997,3 +997,12 @@ class Triton_CPU_4S_8380Hx1(OfflineCPUBaseConfig):
         'ENABLE_BATCH_PADDING': 'NO',
         'SKIP_OV_DYNAMIC_BATCHSIZE': 'YES'
     }
+
+
+@ConfigRegistry.register(HarnessType.Custom, AccuracyTarget.k_99, PowerSetting.MaxP)
+class RTX3080_PCIe_20GBx1(OfflineGPUBaseConfig):
+    system = System("GeForceRTX3080", Architecture.Ampere, 1)
+    precision = "fp16"
+    gpu_batch_size = 256
+    benchmark = Benchmark.BERT
+    offline_expected_qps = 5000
