@@ -1,1 +1,0 @@
-For more details, please refer to the README.md located in closed/Intel/measurements. 

@@ -1,4 +1,0 @@
-Verifying performance.
-reference score = 7002.11
-test score = 6995.40
-TEST PASS

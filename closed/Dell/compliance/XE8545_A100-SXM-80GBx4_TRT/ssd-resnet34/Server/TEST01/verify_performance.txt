@@ -1,4 +1,0 @@
-Verifying performance.
-reference score = 3962.46
-test score = 3962.46
-TEST PASS

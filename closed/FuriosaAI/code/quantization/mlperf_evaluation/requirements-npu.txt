@@ -1,2 +1,0 @@
-furiosa-sdk
-furiosa-sdk-runtime

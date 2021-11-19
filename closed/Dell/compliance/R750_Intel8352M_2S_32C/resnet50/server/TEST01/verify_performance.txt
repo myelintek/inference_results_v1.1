@@ -1,4 +1,0 @@
-Verifying performance.
-reference score = 2030.19
-test score = 2030.19
-TEST PASS

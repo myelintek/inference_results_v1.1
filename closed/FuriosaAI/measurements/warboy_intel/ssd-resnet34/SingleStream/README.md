@@ -1,1 +1,0 @@
-Please refer to closed/FuriosaAI/code/ssd-resnet34/run-ssd-resnet34.sh
