@@ -62,11 +62,13 @@ ifndef DOCKER_DETACH
     DOCKER_DETACH := 0
 endif
 ifndef DOCKER_TAG
-    DOCKER_TAG := $(UNAME)-$(ARCH)
+    # DOCKER_TAG := $(UNAME)-$(ARCH)
+	DOCKER_TAG := $(ARCH)
 endif
 DOCKER_BUILDKIT ?= 1
 
 DOCKER_NAME := mlperf-inference-$(DOCKER_TAG)
+# DOCKER_NAME := cr.myelintek.com/mlcommon/mlperf-inference-$(DOCKER_TAG)
 
 PROJECT_ROOT := $(shell pwd)
 BUILD_DIR    := $(PROJECT_ROOT)/build
@@ -205,9 +207,9 @@ endif
 
 # If DOCKER_COMMAND is not pass, launch interactive docker container session.
 ifeq ($(DOCKER_COMMAND),)
-    DOCKER_INTERACTIVE_FLAGS = -it
+    DOCKER_INTERACTIVE_FLAGS = -id
 else
-    DOCKER_INTERACTIVE_FLAGS =
+    DOCKER_INTERACTIVE_FLAGS = 
 endif
 
 # Default NVIDIA_VISIBLE_DEVICES should use 'all'.
@@ -413,7 +415,7 @@ ifeq ($(SUPPORT_DOCKER), 1)
 		-e MLPERF_SCRATCH_PATH=$(MLPERF_SCRATCH_PATH) \
 		-e HOST_HOSTNAME=$(HOSTNAME) \
 		$(shell if [ $(MIG_CONF) == "ALL" ]; then echo "--gpus all -e NVIDIA_MIG_CONFIG_DEVICES=all"; elif [ $(MIG_CONF) != "OFF" ]; then echo "--gpus '\"device=`bash scripts/mig_get_uuid.sh`\"'"; fi) \
-		mlperf-inference:$(DOCKER_TAG) $(DOCKER_COMMAND)
+		cr.myelintek.com/mlcommon/mlperf-inference:$(DOCKER_TAG) $(DOCKER_COMMAND)
 endif
 
 ############################## DOWNLOAD_MODEL ##############################
