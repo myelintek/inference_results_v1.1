@@ -74,6 +74,7 @@ for benchmark in benchmarks:
             config_string = ""
             for key, value in config_dict.items():
                 config_string = config_string + f"{key} : {value},"
+            config_string = config_string[0:-1]
             print(f"{{{config_string}}}")
             
         
