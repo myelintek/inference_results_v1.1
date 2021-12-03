@@ -15,7 +15,7 @@ from typing import List
 #systems = system_list.KnownSystems()
 #print(get_system())
 system = get_system()
-print(system)
+#print(system)
 supported_benchmarks = ["ssd-mobilenet", "bert", "ssd-resnet34", "resnet50"]
 supported_scenarios = ["offline"]
 #supported_benchmarks = List[Benchmark]
@@ -73,8 +73,8 @@ for benchmark in benchmarks:
             config_dict['scenario']=config_dict['scenario'].name
             config_string = ""
             for key, value in config_dict.items():
-                config_string = config_string + f"{key} : {value}\n"
-            print(f"{config_string};")
+                config_string = config_string + f"{key} : {value},\n"
+            print(f"{{{config_string}}}\n")
             
         
     
