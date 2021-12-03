@@ -337,7 +337,7 @@ class KnownSystems(object):
     Triton_CPU_4S_8380H = SystemClass("Triton_CPU_4S_8380H", ["4S_8380H"], [], Architecture.Intel_CPU_x86_64, [1])
 
     # Dev test Systems
-    GeForceMX_250 = SystemClass("GeForceMX250", ["GeForce MX 250"], ["test"], Architecure.Ampere, [1])
+    GeForceMX_250 = SystemClass("GeForceMX250", ["GeForce MX 250"], ["test"], Architecture.Ampere, [1])
 
     @staticmethod
     def get_all_system_classes():
