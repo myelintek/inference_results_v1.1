@@ -931,3 +931,19 @@ class RTX3080_PCIe_20GBx1(BenchmarkConfiguration):
     scenario = Scenario.Offline
     benchmark = Benchmark.SSDMobileNet
     offline_expected_qps = 19000
+
+@ConfigRegistry.register(HarnessType.LWIS, AccuracyTarget.k_99, PowerSetting.MaxP)
+class MX250_PCIe_2GBx1(BenchmarkConfiguration):
+    system = System("GeForceMX250", Architecture.Ampere, 1)
+    gpu_inference_streams = 1
+    input_dtype = "int8"
+    map_path = "data_maps/coco/val_map.txt"
+    precision = "int8"
+    use_graphs = False
+    gpu_batch_size = 768
+    gpu_copy_streams = 2
+    input_format = "chw4"
+    tensor_path = "${PREPROCESSED_DATA_DIR}/coco/val2017/SSDMobileNet/int8_chw4"
+    scenario = Scenario.Offline
+    benchmark = Benchmark.SSDMobileNet
+    offline_expected_qps = 19000
