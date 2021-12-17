@@ -64,8 +64,8 @@ for benchmark in benchmarks:
             #print(workload_setting)
             config = ConfigRegistry.get(benchmark, scenario, system, **workload_setting.as_dict())
             if config is None:
-                print(f"No registered config for {benchmark.value.name}.{scenario.value.name}.{system} "
-                        f"for WorkloadSetting({workload_setting})")
+                #print(f"No registered config for {benchmark.value.name}.{scenario.value.name}.{system} "
+                #        f"for WorkloadSetting({workload_setting})")
                 continue
             config_dict = config.as_dict()
             config_dict['benchmark'] = config_dict['benchmark'].name
